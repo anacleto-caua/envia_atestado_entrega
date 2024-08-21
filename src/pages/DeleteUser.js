@@ -12,14 +12,14 @@ const DeleteUser = ({ navigation }) => {
   let deleteUser = () => {
     db.transaction((tx) => {
       tx.executeSql(
-        'DELETE FROM  table_user where user_id=?',
+        'DELETE FROM  table_atestado where user_id=?',
         [inputUserId],
         (tx, results) => {
           console.log('Results', results.rowsAffected);
           if (results.rowsAffected > 0) {
             Alert.alert(
               'Sucesso',
-              'Usuário Excluído com Sucesso !',
+              'Atestado excluído com Sucesso !',
               [
                 {
                   text: 'Ok',
@@ -41,13 +41,13 @@ const DeleteUser = ({ navigation }) => {
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
           <Mytextinput
-            placeholder="Entre com o Código do Usuário"
+            placeholder="Entre com o Código do Atestado"
             onChangeText={
               (inputUserId) => setInputUserId(inputUserId)
             }
             style={{ padding: 10 }}
           />
-          <Mybutton title="Excluir Usuário" customClick={deleteUser} />
+          <Mybutton title="Excluir Atestado" customClick={deleteUser} />
         </View>
       </View>
     </SafeAreaView>

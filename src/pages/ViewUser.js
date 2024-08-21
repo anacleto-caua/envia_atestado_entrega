@@ -16,7 +16,7 @@ const ViewUser = () => {
     setUserData({});
     db.transaction((tx) => {
       tx.executeSql(
-        'SELECT * FROM table_user where user_id = ?',
+        'SELECT * FROM table_atestado where user_id = ?',
         [inputUserId],
         (tx, results) => {
           var len = results.rows.length;
@@ -24,7 +24,7 @@ const ViewUser = () => {
           if (len > 0) {
             setUserData(results.rows.item(0));
           } else {
-            alert('Usuário não encontrado !');
+            alert('Atestado não encontrado !');
           }
         }
       );
@@ -35,15 +35,15 @@ const ViewUser = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View style={{ flex: 1 }}>
-          <Mytext text="Filtro de Usuário" />
+          <Mytext text="Filtro de Atestado" />
           <Mytextinput
-            placeholder="Entre com o Código do Usuário"
+            placeholder="Entre com o Código do Atestado"
             onChangeText={
               (inputUserId) => setInputUserId(inputUserId)
             }
             style={{ padding: 10 }}
           />
-          <Mybutton title="Buscar Usuário" customClick={searchUser} />
+          <Mybutton title="Buscar Atestado" customClick={searchUser} />
           <View
             style={{
               marginLeft: 35,
@@ -52,8 +52,8 @@ const ViewUser = () => {
             }}>
             <Text>Código : {userData.user_id}</Text>
             <Text>Nome : {userData.user_name}</Text>
-            <Text>Telefone : {userData.user_contact}</Text>
-            <Text>Endereço : {userData.user_address}</Text>
+            <Text>Email : {userData.email}</Text>
+            <Text>ImgRef : {userData.imgref}</Text>
           </View>
         </View>
       </View>

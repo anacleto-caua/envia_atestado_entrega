@@ -39,13 +39,6 @@ const HomeScreen = ({ navigation }) => {
             />
 
             <MyImageButton
-              title="Atualizar Atestado"
-              btnColor='#A45BB9'
-              btnIcon="user-circle"
-              customClick={() => navigation.navigate('Update')}
-            />
-
-            <MyImageButton
               title="Visualizar Atestado"
               btnColor='#F9AD29'
               btnIcon="user"
